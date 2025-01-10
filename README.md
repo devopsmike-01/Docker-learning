@@ -4,6 +4,8 @@
 
 Docker is a commercial containerization platform and runtime that helps developers build, deploy, and run containers. It uses a client-server architecture with simple commands and automation through a single API.
 
+![What is Docker](Docker-learning/docker-containers-run-anywhere.png)
+
 - Docker also provides a toolkit that is commonly used to package applications into immutable container images by writing a `Dockerfile` and then running the appropriate commands to build the image using the Docker server. 
 - Developers can create containers without Docker but the Docker platform makes it easier to do so. 
 - These container images can then be deployed and run on any platform that supports containers, such as `Kubernetes`, `Docker Swarm`, `Mesos`, or `HashiCorp Nomad`.
