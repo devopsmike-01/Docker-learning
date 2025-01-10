@@ -1,0 +1,49 @@
+# for running in docker compose with prebuilt images
+
+# version is now using "compose spec"
+# v2 and v3 are now combined!
+# docker-compose v1.27+ required
+version: '3'
+services:
+  vote:
+    image: dockersamples/examplevotingapp_vote
+    ports:
+      - "5000:80"
+    networks:
+      - front-tier
+      - back-tier
+
+  result:
+    image: dockersamples/examplevotingapp_result 
+    ports:
+      - "5001:80"
+    networks:
+      - front-tier
+      - back-tier
+
+  worker:
+    image: dockersamples/examplevotingapp_worker 
+    networks:
+      - back-tier
+
+  redis:
+    image: redis:alpine
+    networks:
+      - back-tier
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+    networks:
+      - back-tier
+
+volumes:
+  db-data:
+
+networks:
+  front-tier:
+  back-tier:

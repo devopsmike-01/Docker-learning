@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  webapp:
+    build:
+      context: ./Flask-App
+      dockerfile: Dockerfile
+    container_name: practice-container
+    ports:
+      - 8080:8080
+    networks:
+      - practice-frontier-network
+    volumes:
+      - practice-volume:/app
+    restart: always
+  
+  mysql-database:
+    image: mysql
+    ports: 
+      - 3306
+    container_name: mysql-container
+    volumes:
+      - database-vol:/var/lib/mysql
+    networks:
+      - backend-network
+
+networks:
+  practice-frontier-network:
+  backend-network:
+volumes:
+  practice-volume:
+  database-vol:
+
+  
