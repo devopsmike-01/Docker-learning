@@ -25,12 +25,12 @@ Let’s look happens when you run the docker run hello-world command
 ![Docker Architecture](docker-architecture.png)
 
 This image is a slightly modified version of the one found in the official docs. The events that occur when you execute the command are as follows:
-- - You execute docker run hello-world command where hello-world is the name of an image.
-- -	Docker client reaches out to the daemon, tells it to get the hello-world image and run a container from that.
--  - Docker daemon looks for the image within your local repository and realizes that it's not there, resulting in the Unable to find image 'hello-world:latest' locally that's printed on your terminal.
-- - The daemon then reaches out to the default public registry which is Docker Hub and pulls in the latest copy of the hello-world image, indicated by the latest: Pulling from library/hello-world line in your terminal.
-- - Docker daemon then creates a new container from the freshly pulled image.
-- - Finally, Docker daemon runs the container created using the hello-world image outputting the wall of text on your terminal.
+- You execute docker run hello-world command where hello-world is the name of an image.
+- Docker client reaches out to the daemon, tells it to get the hello-world image and run a container from that.
+- Docker daemon looks for the image within your local repository and realizes that it's not there, resulting in the Unable to find image 'hello-world:latest' locally that's printed on your terminal.
+- The daemon then reaches out to the default public registry which is Docker Hub and pulls in the latest copy of the hello-world image, indicated by the latest: Pulling from library/hello-world line in your terminal.
+- Docker daemon then creates a new container from the freshly pulled image.
+- Finally, Docker daemon runs the container created using the hello-world image outputting the wall of text on your terminal.
 
 ## Docker Registry
 
