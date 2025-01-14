@@ -184,12 +184,23 @@ docker run -d -v "/data" awesome/app bootstrap.sh
 
 This will create a volume and mount it to the path `/data` inside the container.
 
-*Mounting host directories*
-To mount a host file or directory into a container:
+**Mounting a host directory `/home/ec2-user/data` file directory as a persistent volume for Jenkins**
+
+- Create directory on host machine
 
 ```
-docker run -d -v "/home/foo/data:/data" awesome/app bootstrap.sh
+mkdir -p /home/ec2-user/data
 ```
+- Run the Jenkins Container with the Volume Mounted
+```
+docker run -d --name jenkins05 -p 8082:8080 -p 50050:50000 -v /home/ec2-user/data:/var/jenkins_home jenkins/jenkins:lts
+```
+- To confirm that the volume is mounted correctly
+
+```
+docker exec -it -u root <container_id> bash
+```
+
 ---
 
 
