@@ -173,36 +173,12 @@ In order to use ports on the host have been exposed in an image (via the `EXPOSE
 
 9. **Assigning a volume to a container**
 
-A Docker volume is a file or directory which persists beyond the lifetime of the container. It is possible to mount a host file or directory into a container as a volume (bypassing the UnionFS).
-
-Add a volume with the -v command line option:
+Run a Container with a Volume
 
 ```
-docker run -d -v "/data" awesome/app bootstrap.sh
+docker run --rm -it -v <host-volume-path>:<container-volume-path> <container-image>
 ```
----
-
-This will create a volume and mount it to the path `/data` inside the container.
-
-**Mounting a host directory `/home/ec2-user/data` file directory as a persistent volume for Jenkins**
-
-- Create directory on host machine
-
-```
-mkdir -p /home/ec2-user/data
-```
-- Run the Jenkins Container with the Volume Mounted
-```
-docker run -d --name jenkins05 -p 8082:8080 -p 50050:50000 -v /home/ec2-user/data:/var/jenkins_home jenkins/jenkins:lts
-```
-- To confirm that the volume is mounted correctly
-
-```
-docker exec -it -u root <container_id> bash
-```
-
----
-
+- `-v` <host-volume-path>:<container-volume-path> Mounts the <host-volume-path> volume of the host to /<container-volume-path> inside the <container-image> container.
 
 10. **Log into a running container**
 
@@ -240,7 +216,7 @@ docker kill mynginx
 
 Stopping a container doesn't delete it. Use `docker ps -a` to see your stopped container.
 
-12. **Debugging a container**
+## Troubleshooting containers
 
 - *Entering in a running container*
 To execute operations in a container, use the `docker exec` command. Sometimes this is called `"entering the container"` as all commands are executed inside the container.
@@ -253,13 +229,14 @@ docker exec -it container_id bash
 or 
 
 ```
-docker exec -it container_id /bin/sh
+docker exec -it container_id sh
 ```
 ---
 
 - *Monitoring resource usage*
 
-Inspecting system resource usage is an efficient way to find misbehaving applications. This example is an equivalent of the traditional top command for containers:
+Inspecting system resource usage is an efficient way to find misbehaving applications. This example is an equivalent of the traditional top command for containers
+
 ```
 docker stats
 ```
@@ -281,5 +258,11 @@ docker logs --follow --tail 10 7786807d8084
 
 This command basically shows the standard output of the container process (the process with `pid 1`).
 
+- *Inspecting a container*
 
+To get all details of the container 
 
+```
+docker inspect <container-id>
+```
+---

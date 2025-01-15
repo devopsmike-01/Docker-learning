@@ -22,7 +22,7 @@ A collection of related Docker images identified by `tags` (e.g., `nginx:latest`
 A version identifier for an image (e.g., `v1.0`, `stable`, or `latest`).
 
 ## Docker Registry Commands
-Below is a list of Docker registry-related commands, their descriptions, use cases, and examples tailored with a Docker Hub username `michaelgwei86`:
+Below is a list of Docker registry-related commands, their descriptions, use cases, and examples tailored with a Docker Hub username e.g. `michaelgwei86` repo:
 
 
 ![Docker Registry Workflow](https://media.geeksforgeeks.org/wp-content/uploads/20240513153832/Docker-hub-registry-768.webp)
@@ -123,3 +123,6 @@ docker logout
 ***Explanation***
 
 - Removes stored authentication credentials for Docker Hub.
+
+
+## Pushing an image to AWS Elastic Container Registry (ECR)
