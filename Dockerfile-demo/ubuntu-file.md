@@ -58,6 +58,15 @@ CMD ["./app.sh"]
 
 ```
 
+- **FROM**: Specifies the base image (`ubuntu:20.04`).
+- **ENV**: Sets environment variables (`DEBIAN_FRONTEND=noninteractive` prevents interactive prompts during package installation).
+- **RUN**: Executes commands during the image build process (e.g., updates and installs packages, sets up configurations).
+- **WORKDIR**: Sets the working directory inside the container.
+- **COPY**: Copies files from the host to the container.
+- **LABEL**: Adds metadata about the image.
+- **EXPOSE**: Declares a port for the container to listen on.
+- **CMD**: Specifies the default command to run when the container starts.
+
 
 ## Build the Docker Image 
 
