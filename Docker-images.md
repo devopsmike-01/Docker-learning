@@ -32,7 +32,7 @@ To pull a tagged image
 ---
 
    ```bash
-   docker pull registry.example.com/username/ubuntu:14.04
+   docker pull registry.example.com/username/ubuntu:22.04
    ```
 --- 
 
